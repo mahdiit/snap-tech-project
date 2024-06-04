@@ -32,7 +32,7 @@ namespace SnappTech.Infrastructure.Cache
             MemoryCache.Dispose();
         }
 
-        public async Task<T?> GetData<T>(string cacheKey, Func<Task<T>>? fallbackFunction, TimeSpan? expireTime) where T : class
+        public async Task<T?> GetData<T>(string cacheKey, Func<Task<T?>>? fallbackFunction, TimeSpan? expireTime) where T : class
         {
             T? data;
             if (MemoryCache.TryGetValue(cacheKey, out data))
