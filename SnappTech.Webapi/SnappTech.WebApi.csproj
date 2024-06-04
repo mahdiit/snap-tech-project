@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>snap_tech_project</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SnappTech.Application\SnappTech.Application.csproj" />
+    <ProjectReference Include="..\SnappTech.Domain\SnappTech.Domain.csproj" />
+    <ProjectReference Include="..\SnappTech.Infrastructure\SnappTech.Infrastructure.csproj" />
+    <ProjectReference Include="..\SnappTech.Persistence\SnappTech.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
