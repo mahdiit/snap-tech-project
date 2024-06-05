@@ -4,7 +4,7 @@ using SnappTech.Domain.Dto.Product;
 
 namespace SnappTech.Application.Dto.Product.Command.Create
 {
-    public class ProductDtoValidator : AbstractValidator<ProductDto>
+    public class ProductDtoValidator : AbstractValidator<CreateProductDto>
     {
         public ProductDtoValidator(IProductRepository productRepository)
         {

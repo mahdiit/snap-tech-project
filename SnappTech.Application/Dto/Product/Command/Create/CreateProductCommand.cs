@@ -10,6 +10,6 @@ namespace SnappTech.Application.Dto.Product.Command.Add
 {
     public class CreateProductCommand : BaseRequest<CreateProductResult>
     {
-        public ProductDto Product { get; set; }
+        public CreateProductDto Product { get; set; }
     }
 }
