@@ -4,9 +4,9 @@ using SnappTech.Domain.Dto.Product;
 
 namespace SnappTech.Application.Dto.Product.Command.Create
 {
-    public class ProductDtoValidator : AbstractValidator<CreateProductDto>
+    public class CreateProductDtoValidator : AbstractValidator<CreateProductDto>
     {
-        public ProductDtoValidator(IProductRepository productRepository)
+        public CreateProductDtoValidator(IProductRepository productRepository)
         {
             RuleFor(p => p.Title)
                 .NotEmpty().WithMessage("title required")

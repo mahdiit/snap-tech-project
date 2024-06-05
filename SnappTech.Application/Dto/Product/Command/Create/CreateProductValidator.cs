@@ -16,7 +16,7 @@ namespace SnappTech.Application.Dto.Product.Command.Create
         {
             RuleFor(p => p.Product)
                 .NotNull()
-                .SetValidator(new ProductDtoValidator(productRepository));
+                .SetValidator(new CreateProductDtoValidator(productRepository));
         }
     }
 }
