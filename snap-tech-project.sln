@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnappTech.WebApi", "SnappTech.Webapi\SnappTech.WebApi.csproj", "{D6161BBA-F66C-49A2-96FB-2991519C7391}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnappTech.WebApi", "SnappTech.Webapi\SnappTech.WebApi.csproj", "{D6161BBA-F66C-49A2-96FB-2991519C7391}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnappTech.Domain", "SnappTech.Domain\SnappTech.Domain.csproj", "{33E1867D-5ADF-40CF-9000-F85BE6484374}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnappTech.Domain", "SnappTech.Domain\SnappTech.Domain.csproj", "{33E1867D-5ADF-40CF-9000-F85BE6484374}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnappTech.Persistence", "SnappTech.Persistence\SnappTech.Persistence.csproj", "{6D771344-EE4C-48C3-9532-CFAE0FA75523}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnappTech.Persistence", "SnappTech.Persistence\SnappTech.Persistence.csproj", "{6D771344-EE4C-48C3-9532-CFAE0FA75523}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnappTech.Infrastructure", "SnappTech.Infrastructure\SnappTech.Infrastructure.csproj", "{44B527A0-108F-4AE3-A5DB-A57249259933}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnappTech.Infrastructure", "SnappTech.Infrastructure\SnappTech.Infrastructure.csproj", "{44B527A0-108F-4AE3-A5DB-A57249259933}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnappTech.Application", "SnappTech.Application\SnappTech.Application.csproj", "{B4162D68-09A9-454B-AC65-2F3FC4333E6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnappTech.Application", "SnappTech.Application\SnappTech.Application.csproj", "{B4162D68-09A9-454B-AC65-2F3FC4333E6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnappTech.Persistence.Test", "SnappTech.Persistence.Test\SnappTech.Persistence.Test.csproj", "{8A8AC2D4-7AC4-44D8-B977-0C7983FEB89A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B4162D68-09A9-454B-AC65-2F3FC4333E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4162D68-09A9-454B-AC65-2F3FC4333E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4162D68-09A9-454B-AC65-2F3FC4333E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A8AC2D4-7AC4-44D8-B977-0C7983FEB89A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A8AC2D4-7AC4-44D8-B977-0C7983FEB89A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A8AC2D4-7AC4-44D8-B977-0C7983FEB89A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A8AC2D4-7AC4-44D8-B977-0C7983FEB89A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,6 +11,11 @@ namespace SnappTech.Domain.Entities
 {
     public class Product : BaseEntity
     {
+        private Product()
+        {
+            
+        }
+
         #region Anemic Model
         [Key]
         public int Id { get; private set; }
@@ -39,6 +44,9 @@ namespace SnappTech.Domain.Entities
         #region Methods
         public static Product Create(string title, int inventoryCount, int price, int discount)
         {
+            if (string.IsNullOrEmpty(title) || title.Length > 40)
+                throw new DomainException("CreateProduct", "product title length must less than 40 chars");
+
             return new Product()
             {
                 Title = title,

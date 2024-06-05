@@ -11,21 +11,26 @@ namespace SnappTech.Domain.Entities
 {
     public class Order : BaseEntity
     {
+        private Order()
+        {
+                
+        }
+
         [Key]
-        public int Id { get; set; }
-        public int ProductId { get; set; }
-        public int Count { get; set; }
-        public int ProductPrice { get; set; }
-        public int BuyerId { get; set; }
-        public DateTime CreationDate { get; set; }
+        public int Id { get; private set; }
+        public int ProductId { get; private set; }
+        public int Count { get; private set; }
+        public int ProductPrice { get; private set; }
+        public int BuyerId { get; private set; }
+        public DateTime CreationDate { get; private set; }
 
         [ForeignKey("BuyerId")]
         [InverseProperty("Orders")]
-        public virtual User Buyer { get; set; } = null!;
+        public virtual User Buyer { get; private set; } = null!;
 
         [ForeignKey("ProductId")]
         [InverseProperty("Orders")]
-        public virtual Product Product { get; set; } = null!;
+        public virtual Product Product { get; private set; } = null!;
 
         public static Order Create(int buyerId, Product product, int count)
         {
