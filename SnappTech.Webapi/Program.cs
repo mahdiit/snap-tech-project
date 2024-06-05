@@ -21,6 +21,8 @@ namespace snap_tech_project
             builder.Services.ConfigureInfrastructure(builder.Configuration);
             builder.Services.ConfigureApplication(builder.Configuration);
 
+            builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+            builder.Services.AddProblemDetails();
 
             var app = builder.Build();
 
@@ -32,8 +34,7 @@ namespace snap_tech_project
             }
 
             app.UseAuthorization();
-
-
+            app.UseExceptionHandler();
             app.MapControllers();
 
             app.Run();
