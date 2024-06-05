@@ -27,6 +27,7 @@ namespace SnappTech.Application.Handlers.Product
             }
 
             product.IncreaseInventory(request.Amount);
+            await _productRepository.Update(product);
             await _productRepository.Save();
 
             return new IncreaseInventoryResult();

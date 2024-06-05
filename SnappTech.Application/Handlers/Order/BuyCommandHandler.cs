@@ -43,6 +43,7 @@ namespace SnappTech.Application.Handlers.Order
             var order = Domain.Entities.Order.Create(1001, product, request.Order.Count);
 
             await _orderRepository.Add(order);
+            await _productRepository.Update(product);
             await _orderRepository.Save();
 
             return new BuyResult();
