@@ -24,6 +24,12 @@ namespace SnappTech.Persistence.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>()
+                .HasData(
+                    new User() { Id = 1001, Name = "admin" },
+                    new User() { Id = 1002, Name = "hamster" },
+                    new User() { Id = 1003, Name = "user" }
+                );
 
             base.OnModelCreating(modelBuilder);
         }

@@ -52,6 +52,14 @@ namespace SnappTech.Domain.Entities
 
             InventoryCount += amount;
         }
+
+        public void DecreaseInventory(int amount)
+        {
+            if (amount > InventoryCount)
+                throw new DomainException("DecreaseInventory", "Insufficient inventory");
+
+            InventoryCount += amount;
+        }
         #endregion
     }
 }

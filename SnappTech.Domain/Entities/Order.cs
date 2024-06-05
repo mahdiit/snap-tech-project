@@ -14,6 +14,8 @@ namespace SnappTech.Domain.Entities
         [Key]
         public int Id { get; set; }
         public int ProductId { get; set; }
+        public int Count { get; set; }
+        public int ProductPrice { get; set; }
         public int BuyerId { get; set; }
         public DateTime CreationDate { get; set; }
 
