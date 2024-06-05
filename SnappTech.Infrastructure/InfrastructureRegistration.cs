@@ -15,6 +15,7 @@ namespace SnappTech.Infrastructure
     {
         public static IServiceCollection ConfigureInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddMemoryCache();
             services.AddSingleton<IMemoryCacheService, MemoryCacheService>();
             return services;
         }

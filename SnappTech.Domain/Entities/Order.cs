@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SnappTech.Domain.Entities
 {
-    public partial class Order : BaseEntity
+    public class Order : BaseEntity
     {
         [Key]
         public int Id { get; set; }
@@ -26,5 +26,18 @@ namespace SnappTech.Domain.Entities
         [ForeignKey("ProductId")]
         [InverseProperty("Orders")]
         public virtual Product Product { get; set; } = null!;
+
+        public static Order Create(int buyerId, Product product, int count)
+        {
+            product.DecreaseInventory(count);
+            return new Order()
+            {
+                ProductId = product.Id,
+                ProductPrice = product.TotalPriceWithDiscount,
+                BuyerId = buyerId,
+                CreationDate = DateTime.Now,
+                Count = count
+            };
+        }
     }
 }

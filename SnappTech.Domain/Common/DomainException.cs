@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnappTech.Domain.Common
 {
-    public class DomainException : Exception
+    public class DomainException : AppException
     {
         public string DomainType { get; set; }
         public DomainException(string type, string message): base(message)

@@ -24,12 +24,17 @@ namespace SnappTech.Persistence.Repositories
 
         public Task<Product?> GetById(int id)
         {
-            return _db.GetReadonlyQuery<Product>().FirstOrDefaultAsync(x => x.Id == id);
+            return _db.GetQuery<Product>().FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        public Task<Product?> GetByIdReadonly(int id)
+        {
+            return _db.GetQuery<Product>().FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public Task<Product?> GetByIdWithCache(int id, TimeSpan cacheDuration)
         {
-            return _cacheService.GetData($"SYSDATA:PRODUCT:{id}", () => GetById(id), cacheDuration);
+            return _cacheService.GetData($"SYSDATA:PRODUCT:{id}", () => GetByIdReadonly(id), cacheDuration);
         }
 
         public Task<bool> TitleExist(string title)

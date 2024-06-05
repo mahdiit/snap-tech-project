@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SnappTech.Domain.Entities
 {
-    public partial class Product : BaseEntity
+    public class Product : BaseEntity
     {
         #region Anemic Model
         [Key]
@@ -37,12 +37,15 @@ namespace SnappTech.Domain.Entities
 
 
         #region Methods
-        public void Create(string title, int inventoryCount, int price, int discount)
+        public static Product Create(string title, int inventoryCount, int price, int discount)
         {
-            Title = title;
-            InventoryCount = inventoryCount;
-            Price = price;
-            Discount = discount;
+            return new Product()
+            {
+                Title = title,
+                InventoryCount = inventoryCount,
+                Price = price,
+                Discount = discount
+            };
         }
 
         public void IncreaseInventory(int amount)
@@ -58,7 +61,7 @@ namespace SnappTech.Domain.Entities
             if (amount > InventoryCount)
                 throw new DomainException("DecreaseInventory", "Insufficient inventory");
 
-            InventoryCount += amount;
+            InventoryCount -= amount;
         }
         #endregion
     }

@@ -10,5 +10,6 @@ namespace SnappTech.Application.Dto.Product.Command.IncreaseInventory
     public class IncreaseInventoryCommand : BaseRequest<IncreaseInventoryResult>
     {
         public int Amount { get; set; }
+        public int ProductId { get; set; }
     }
 }

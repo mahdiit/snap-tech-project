@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SnappTech.Domain.Entities
 {
-    public partial class User : BaseEntity
+    public class User : BaseEntity
     {
         [Key]
         public int Id { get; set; }

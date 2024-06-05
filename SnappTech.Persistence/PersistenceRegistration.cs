@@ -1,7 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BanketApp.Application.Contracts.Persistence.Common;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SnappTech.Application.Contracts.Persistence;
+using SnappTech.Persistence.Common;
 using SnappTech.Persistence.Context;
+using SnappTech.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +18,10 @@ namespace SnappTech.Persistence
     {
         public static IServiceCollection ConfigurePersistence(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ProjectContext>(config =>
-            {
-                config.UseSqlServer(configuration["Db"]);
-            });
+            services.AddDbContext<ProjectContext>();
+            services.AddScoped<IUnitOfWrok, ProjectUnitOfWork>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
             return services;
         }
     }

@@ -42,6 +42,8 @@ namespace SnappTech.Infrastructure.Cache
                 return null;
 
             data = await fallbackFunction();
+            if (data == null) return null;
+
             var cacheEntryOptions = new MemoryCacheEntryOptions()
                   .SetAbsoluteExpiration(expireTime.GetValueOrDefault(TimeSpan.FromDays(7)))
                   .SetPriority(CacheItemPriority.Normal);

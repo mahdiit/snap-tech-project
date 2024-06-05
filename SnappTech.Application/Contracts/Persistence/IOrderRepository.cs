@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SnappTech.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace SnappTech.Application.Contracts.Persistence
 {
     public interface IOrderRepository
     {
-
+        Task Add(Order order);
+        Task Save();
     }
 }
