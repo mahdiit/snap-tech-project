@@ -47,6 +47,9 @@ namespace SnappTech.Domain.Entities
             if (string.IsNullOrEmpty(title) || title.Length > 40)
                 throw new DomainException("CreateProduct", "product title length must less than 40 chars");
 
+            if (discount < 0 || discount > 100)
+                throw new DomainException("CreateProduct", "product discount must between 0-100");
+
             return new Product()
             {
                 Title = title,
