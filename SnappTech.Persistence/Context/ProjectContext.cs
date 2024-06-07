@@ -12,15 +12,21 @@ namespace SnappTech.Persistence.Context
 {
     public class ProjectContext : BaseContext
     {
+        public ProjectContext(DbContextOptions<ProjectContext> option)
+            : base(option)
+        {
+
+        }
+
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=SnappTech;Integrated Security=True;Encrypt=False;Trust Server Certificate=True");
-            base.OnConfiguring(optionsBuilder);
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=SnappTech;Integrated Security=True;Encrypt=False;Trust Server Certificate=True");
+        //    base.OnConfiguring(optionsBuilder);
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

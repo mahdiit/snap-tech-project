@@ -10,6 +10,12 @@ namespace SnappTech.Persistence.Common
 {
     public class BaseContext : DbContext
     {
+        public BaseContext(DbContextOptions option)
+            : base(option)
+        {
+
+        }
+
         #region Common        
         public virtual async Task<int> SaveChangesAsync()
         {

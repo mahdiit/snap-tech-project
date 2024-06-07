@@ -18,7 +18,10 @@ namespace SnappTech.Persistence
     {
         public static IServiceCollection ConfigurePersistence(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ProjectContext>();
+            services.AddDbContext<ProjectContext>(opt =>
+            {
+                opt.UseSqlServer(configuration["Db"]);
+            });
             services.AddScoped<IUnitOfWrok, ProjectUnitOfWork>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
