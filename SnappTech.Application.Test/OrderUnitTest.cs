@@ -22,17 +22,21 @@ using Xunit.Abstractions;
 
 namespace SnappTech.Application.Test
 {
-    public class OrderUnitTest : BaseTest
+    public class OrderUnitTest : IClassFixture<BaseTest>
     {
-        public OrderUnitTest(ITestOutputHelper outputHelper) : base(outputHelper)
+        BaseTest test;
+        ITestOutputHelper output;
+        public OrderUnitTest(BaseTest baseTest, ITestOutputHelper testOutput)
         {
+            this.test = baseTest;
+            output = testOutput;
         }
 
         [Fact]
         public async Task Buy_InvalidInputTest()
         {
             var buyCommand = new BuyCommand() { Order = new Dto.Order.CreateOrderDto() { Count = -10, ProductId = -101 } };            
-            await Assert.ThrowsAsync<AppException>(async ()=> await _mediator.Send(buyCommand));
+            await Assert.ThrowsAsync<AppException>(async ()=> await test._mediator.Send(buyCommand));
 
             output.WriteLine("Done");
         }
@@ -51,17 +55,17 @@ namespace SnappTech.Application.Test
                 }
             };
             //Add sample product
-            var responseProduct = await _mediator.Send(addProduct);
+            var responseProduct = await test._mediator.Send(addProduct);
             Assert.Equal(0, responseProduct.StatusCode);
 
             //buy this product
             var buyCommand = new BuyCommand() { Order = new Dto.Order.CreateOrderDto() { Count = 5, ProductId = 1 } };
-            var responseBuy = await _mediator.Send(buyCommand);
+            var responseBuy = await test._mediator.Send(buyCommand);
             Assert.Equal(0, responseBuy.StatusCode);
 
             //check inventory count
             var getProduct = new GetByIdQuery() { ProductId = 1 };
-            var responseQuery = await _mediator.Send(getProduct);
+            var responseQuery = await test._mediator.Send(getProduct);
 
             Assert.Equal(0, responseQuery.StatusCode);
             Assert.NotNull(responseQuery.Product);

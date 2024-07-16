@@ -11,11 +11,12 @@ using Xunit.Abstractions;
 
 namespace SnappTech.Application.Test
 {
-    public class ProductUnitTest : BaseTest
+    public class ProductUnitTest : IClassFixture<BaseTest>
     {
-        public ProductUnitTest(ITestOutputHelper outputHelper) : base(outputHelper)
+        BaseTest test;
+        public ProductUnitTest(BaseTest baseTest)
         {
-            
+            test = baseTest;
         }
 
         [Fact]
@@ -32,18 +33,19 @@ namespace SnappTech.Application.Test
                 }
             };
             //Add sample product
-            var responseProduct = await _mediator.Send(addProduct);
+            var responseProduct = await test._mediator.Send(addProduct);
             Assert.Equal(0, responseProduct.StatusCode);
 
             var invalidIncrease = new IncreaseInventoryCommand() { Amount = -10, ProductId = 1 };
-            await Assert.ThrowsAnyAsync<AppException>(async () => await _mediator.Send(invalidIncrease));
+            await Assert.ThrowsAnyAsync<AppException>(async () => await test._mediator.Send(invalidIncrease));
 
             var validIncrease = new IncreaseInventoryCommand() { Amount = 5, ProductId = 1 };
-            var response = await _mediator.Send(validIncrease);
+            var response = await test._mediator.Send(validIncrease);
             Assert.Equal(0, response.StatusCode);
 
             var checkCount = new GetByIdQuery() { ProductId = 1 };  
-            var responseQuery = await _mediator.Send(checkCount);
+            var responseQuery = await test._mediator.Send(checkCount);
+
             Assert.Equal(0, responseQuery.StatusCode);
             Assert.NotNull(responseQuery.Product);
             Assert.Equal(15, responseQuery.Product.InventoryCount);

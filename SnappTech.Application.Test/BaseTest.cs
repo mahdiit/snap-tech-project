@@ -19,17 +19,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit.Abstractions;
+using Xunit.Sdk;
 
 namespace SnappTech.Application.Test
 {
-    public abstract class BaseTest : IDisposable
+    public class BaseTest : IDisposable
     {
-        protected IServiceCollection _services;
-        protected IServiceProvider _app;
-        protected IMediator _mediator;
-        protected readonly ITestOutputHelper output;
+        public IServiceCollection _services;
+        public IServiceProvider _app;
+        public IMediator _mediator;
+        //public readonly ITestOutputHelper output;
 
-        public BaseTest(ITestOutputHelper outputHelper)
+        public BaseTest()
         {
             _services = new ServiceCollection();
             _app = _services
@@ -45,10 +46,11 @@ namespace SnappTech.Application.Test
                 .AddScoped<IProductRepository, ProductRepository>()
                 .AddScoped<IValidator<CreateProductCommand>, CreateProductValidator>()
                 .AddScoped<IValidator<BuyCommand>, BuyCommandValidator>()
+                //.AddSingleton<ITestOutputHelper, TestOutputHelper>()
                 .BuildServiceProvider();
 
             _mediator = _app.GetRequiredService<IMediator>();
-            output = outputHelper;
+            //output = _app.GetRequiredService<ITestOutputHelper>();
         }
         public void Dispose()
         {
