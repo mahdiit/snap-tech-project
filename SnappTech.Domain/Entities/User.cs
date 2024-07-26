@@ -19,7 +19,7 @@ namespace SnappTech.Domain.Entities
         public string Name { get; set; } = null!;
 
         [InverseProperty("Buyer")]
-        public ICollection<Order> Orders { get; set; } = new List<Order>();
+        public IReadOnlyCollection<Order> Orders { get; set; } = new List<Order>();
 
     }
 }

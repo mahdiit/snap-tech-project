@@ -28,7 +28,7 @@ namespace SnappTech.Domain.Entities
         public int Discount { get; private set; } = 0;
 
         [InverseProperty("Product")]
-        public ICollection<Order> Orders { get; private set; } = new List<Order>();
+        public IReadOnlyCollection<Order> Orders { get; private set; } = new List<Order>();
         #endregion
 
         [NotMapped]
