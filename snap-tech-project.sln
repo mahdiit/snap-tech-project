@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnappTech.Infrastructure", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnappTech.Application", "SnappTech.Application\SnappTech.Application.csproj", "{B4162D68-09A9-454B-AC65-2F3FC4333E6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnappTech.Application.Test", "SnappTech.Application.Test\SnappTech.Application.Test.csproj", "{BDC2EFFE-07CC-4936-A16D-F56FBCF8F420}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnappTech.Application.Test", "SnappTech.Application.Test\SnappTech.Application.Test.csproj", "{BDC2EFFE-07CC-4936-A16D-F56FBCF8F420}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnappTech.IdentityServer", "SnappTech.IdentityServer\SnappTech.IdentityServer.csproj", "{0047BA75-CB4D-4BBC-98CA-11DB8F1F2DEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{BDC2EFFE-07CC-4936-A16D-F56FBCF8F420}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDC2EFFE-07CC-4936-A16D-F56FBCF8F420}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDC2EFFE-07CC-4936-A16D-F56FBCF8F420}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0047BA75-CB4D-4BBC-98CA-11DB8F1F2DEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0047BA75-CB4D-4BBC-98CA-11DB8F1F2DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0047BA75-CB4D-4BBC-98CA-11DB8F1F2DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0047BA75-CB4D-4BBC-98CA-11DB8F1F2DEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
