@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SnappTech.Application.Dto.Order.Command;
@@ -7,6 +8,7 @@ namespace snap_tech_project.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
+    [Authorize]
     public class OrderController : ControllerBase
     {
         IMediator _mediator;
